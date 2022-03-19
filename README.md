@@ -1,10 +1,14 @@
-# 食客注册API接口
+# Token实现SSO
 
 ## 需求介绍
+![image](https://user-images.githubusercontent.com/71139000/159104646-f10e9acd-fb5a-4449-adc5-8e933faa0f46.png)
 
-![1605505381790](./README.assets/1605505381790.png)
 
-![1605505318306](./README.assets/1605505318306.png)
+使用 token 时需要考虑的问题
+● 如果你认为用数据库来存储 token 会导致查询时间太长，可以选择放在内存当中。比如 redis 很适合你对 token 查询的需求。
+● token 完全由应用管理，所以它可以避开同源策略
+● token 可以避免 CSRF 攻击(因为不需要 cookie 了)
+● 移动端对 cookie 的支持不是很好，而 session 需要基于 cookie 实现，所以移动端常用的是 token
 
 ## 验证码保存至Redis
 
